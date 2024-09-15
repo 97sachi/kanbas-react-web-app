@@ -285,7 +285,7 @@ to get dummy text<br/>
 
 <h4>Anchor tag</h4>
 Click to get to
-<a id="wd-lipsum" href="https://www.lipsum.com"> GitHub Repo </a>
+<a id="wd-github" href="https://github.com/97sachi/kanbas-react-web-app"> GitHub Repo </a>
 of the code.<br/>
 
       </div>
