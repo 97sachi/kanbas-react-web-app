@@ -288,6 +288,7 @@ Click to get to
 <a id="wd-github" href="https://github.com/97sachi/kanbas-react-web-app"> GitHub Repo </a>
 of the code.<br/>
 
+
       </div>
     );
   }
