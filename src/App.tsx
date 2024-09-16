@@ -6,7 +6,6 @@ export default function App() {
   return (
     <HashRouter>
       <div>
-        <Labs />
         <Routes>
         <Route path="/" element={<Navigate to="Kanbas"/>}/>
      <Route path="/Labs/*" element={<Labs />} />
