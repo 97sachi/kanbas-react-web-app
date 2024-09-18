@@ -115,13 +115,24 @@ export default function AssignmentEditor() {
           </td>
           <td>
           <label htmlFor="wd-available-until">Until</label> <br></br>
-          <input id="wd-available-until" value="2000-01-01" type="date" /><br/><br></br>
+          <input id="wd-available-until" value="2000-01-01" type="date" /><br/>
            
           </td>
         </tr>
         
       </table>
-      <button id="wd-name">Cancel</button>
-      <button id="wd-name">Save</button>
+      <hr />
+      <table width = "100%">
+        <tr>
+          <td align = "right">
+          <button id="wd-name">Cancel</button>
+           <button id="wd-name">Save</button>
+          </td>
+
+        </tr>
+
+      
+      </table>
+      
     </div>
 );}
