@@ -2,23 +2,16 @@ import Modules from "../Modules";
 import CourseStatus from "./Status";
 export default function Home() {
   return (
-    <><button id="wd-collapse-all">Collapse All</button>
-    <button id="wd-view-progress">View Progress</button>
-    <select id="wd-publish-all">
-        <option value="ASSIGNMENTS">Publish All</option>
-        <option value="QUIZZES">Publish Selected</option>
-      </select>
-    <button id="wd-view-progress">+ Module</button>
-    <table id="wd-home">
-      <tr>
-        <td valign="top">
+    <>
+   
+  <div className="d-flex" id="wd-home">
+  <div className="flex-fill">
           <Modules />
-        </td>
-        <td valign="top">
+        </div>
+  <div className="d-none d-md-block">
           <CourseStatus />
-        </td>
-      </tr>
-    </table></>
+        </div>
+        </div></>
   );
 }
 
