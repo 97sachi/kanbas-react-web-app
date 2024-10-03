@@ -17,7 +17,7 @@ export default function AssignmentEditor() {
       {/* Assignment Description */}
       <div className="row mb-3">
         <div className="col-md-12">
-          <label htmlFor="wd-description" className="form-label">Description</label>
+          <label htmlFor="wd-description" className="form-label"></label>
           <textarea
             cols={50}
             rows={10}
@@ -40,7 +40,7 @@ export default function AssignmentEditor() {
       {/* Labels and Fields */}
       <div className="row mb-2"> {/* Reduced margin */}
         {/* Points */}
-        <div className="col-md-3 d-flex align-items-center"> {/* Align label with input */}
+        <div className="col-md-3 d-flex align-items-center justify-content-end"> {/* Align label with input */}
           <label htmlFor="wd-points" className="form-label">Points</label>
         </div>
         <div className="col-md-9">
@@ -50,7 +50,7 @@ export default function AssignmentEditor() {
 
       <div className="row mb-2"> {/* Reduced margin */}
         {/* Assignment Group */}
-        <div className="col-md-3 d-flex align-items-center">
+        <div className="col-md-3 d-flex align-items-center justify-content-end">
           <label htmlFor="wd-group" className="form-label">Assignment Group</label>
         </div>
         <div className="col-md-9">
@@ -70,7 +70,7 @@ export default function AssignmentEditor() {
 
       <div className="row mb-2"> {/* Reduced margin */}
         {/* Display Grade As */}
-        <div className="col-md-3 d-flex align-items-center">
+        <div className="col-md-3 d-flex align-items-center justify-content-end">
           <label htmlFor="wd-display-grade-as" className="form-label">Display Grade as</label>
         </div>
         <div className="col-md-9">
@@ -89,7 +89,7 @@ export default function AssignmentEditor() {
 
       <div className="row mb-2"> {/* Reduced margin */}
         {/* Submission Type */}
-        <div className="col-md-3 d-flex align-items-center">
+        <div className="col-md-3 d-flex align-items-center justify-content-end">
           <label htmlFor="wd-submission-type" className="form-label">Submission Type</label>
         </div>
         <div className="col-md-9">
@@ -113,24 +113,24 @@ export default function AssignmentEditor() {
         </div>
         <div className="col-md-9">
           <div className="border p-3" style={{ marginTop: '-15px' }}> {/* Adjusted margin to reduce gap */}
-            <label className="form-label">Online Entry Options</label>
-            <div className="form-check">
+            <label className="form-label"><strong>Online Entry Options</strong></label> {/* Bold */}
+            <div className="form-check mb-2"> {/* Added padding between options */}
               <input type="checkbox" className="form-check-input" id="wd-text-entry" />
               <label htmlFor="wd-text-entry" className="form-check-label">Text Entry</label>
             </div>
-            <div className="form-check">
+            <div className="form-check mb-2"> {/* Added padding between options */}
               <input type="checkbox" className="form-check-input" id="wd-website-url" defaultChecked />
               <label htmlFor="wd-website-url" className="form-check-label">Website URL</label>
             </div>
-            <div className="form-check">
+            <div className="form-check mb-2"> {/* Added padding between options */}
               <input type="checkbox" className="form-check-input" id="wd-media-recordings" />
               <label htmlFor="wd-media-recordings" className="form-check-label">Media Recordings</label>
             </div>
-            <div className="form-check">
+            <div className="form-check mb-2"> {/* Added padding between options */}
               <input type="checkbox" className="form-check-input" id="wd-student-annotation" />
               <label htmlFor="wd-student-annotation" className="form-check-label">Student Annotation</label>
             </div>
-            <div className="form-check">
+            <div className="form-check mb-2"> {/* Added padding between options */}
               <input type="checkbox" className="form-check-input" id="wd-file-upload" />
               <label htmlFor="wd-file-upload" className="form-check-label">File Uploads</label>
             </div>
@@ -139,14 +139,14 @@ export default function AssignmentEditor() {
       </div>
 
       {/* Assign To, Due Date, and Availability */}
-      <div className="row mb-3">
-        <div className="col-md-3 d-flex align-items-center">
-          <label className="form-label">Assign</label>
+      <div className="row mb-5">
+        <div className="col-md-3 d-flex  justify-content-end">
+          <label className="form-label">Assign</label> {/* Bold label */}
         </div>
         <div className="col-md-9">
           <div className="border p-3">
             <div className="mb-3">
-              <label htmlFor="wd-assign-to" className="form-label font-weight-bold">Assign to</label> {/* Bold label */}
+              <label htmlFor="wd-assign-to" className="form-label font-weight-bold"><strong>Assign to</strong></label> {/* Bold label */}
               <div className="input-group">
                 <input id="wd-assign-to" value={selectedAssignTo} className="form-control" />
                 <span className="input-group-text">
@@ -157,7 +157,7 @@ export default function AssignmentEditor() {
 
             {/* Due Date */}
             <div className="mb-3">
-              <label htmlFor="wd-due-date" className="form-label font-weight-bold">Due</label> {/* Bold label */}
+              <label htmlFor="wd-due-date" className="form-label font-weight-bold"><strong>Due</strong></label> {/* Bold label */}
               <div className="input-group">
                 <input id="wd-due-date" type="datetime-local" value="2024-05-13T23:59" className="form-control" />
                 <span className="input-group-text">
@@ -169,7 +169,7 @@ export default function AssignmentEditor() {
             {/* Available From and Until */}
             <div className="row">
               <div className="col-md-6">
-                <label htmlFor="wd-available-from" className="form-label font-weight-bold">Available from</label> {/* Bold label */}
+                <label htmlFor="wd-available-from" className="form-label font-weight-bold"><strong>Available from</strong></label> {/* Bold label */}
                 <div className="input-group">
                   <input id="wd-available-from" type="datetime-local" value="2024-05-06T12:00" className="form-control" />
                   <span className="input-group-text">
@@ -179,7 +179,7 @@ export default function AssignmentEditor() {
               </div>
 
               <div className="col-md-6">
-                <label htmlFor="wd-available-until" className="form-label font-weight-bold">Until</label> {/* Bold label */}
+                <label htmlFor="wd-available-until" className="form-label font-weight-bold"><strong>Until</strong></label> {/* Bold label */}
                 <div className="input-group">
                   <input id="wd-available-until" type="datetime-local" className="form-control" />
                   <span className="input-group-text">

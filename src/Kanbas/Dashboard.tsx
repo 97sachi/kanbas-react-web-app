@@ -6,7 +6,7 @@ export default function Dashboard() {
       <h2 id="wd-dashboard-published">Published Courses (12)</h2> <hr />
       <div id="wd-dashboard-courses" className="row">
       <div className="row row-cols-1 row-cols-md-5 g-4">
-        <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+        <div className="wd-dashboard-course col" style={{ width: "270px" }}>
         <div className="card rounded-3 overflow-hidden">
             <Link className="wd-dashboard-course-link text-decoration-none text-dark"
               to="/Kanbas/Courses/1234/Home">
@@ -16,7 +16,7 @@ export default function Dashboard() {
               CS1234 React JS
               </h5>
               <p className="wd-dashboard-course-title card-text">
-              Full Stack software developer
+              Fall 2024 Semester Full Term Section: 1234_1
             </p>
             <button className="btn btn-primary"> Go </button>
             </div>
@@ -25,7 +25,7 @@ export default function Dashboard() {
           </div>
 
 
-          <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+          <div className="wd-dashboard-course col" style={{ width: "270px" }}>
         <div className="card rounded-3 overflow-hidden">
         <Link className="wd-dashboard-course-link text-decoration-none text-dark"
               to="/Kanbas/Courses/1200/Home">
@@ -35,7 +35,7 @@ export default function Dashboard() {
               CS1200 Java
               </h5>
             <p className="wd-dashboard-course-title card-text">
-              Java & Object Oriented Programming
+            Summer 2024 Semester Full Term Section: 1200_1
             </p>
             <button className="btn btn-primary"> Go </button>
             </div>
@@ -43,7 +43,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+        <div className="wd-dashboard-course col" style={{ width: "270px" }}>
         <div className="card rounded-3 overflow-hidden">
         <Link className="wd-dashboard-course-link text-decoration-none text-dark"
               to="/Kanbas/Courses/1201/Home">
@@ -54,7 +54,7 @@ export default function Dashboard() {
               </h5>
             
             <p className="wd-dashboard-course-title card-text">
-              Learn Python and its Libraries 
+            Fall 2024 Semester Full Term Section: 1201_2
             </p>
             <button className="btn btn-primary"> Go </button>
             </div>
@@ -63,7 +63,7 @@ export default function Dashboard() {
         </div>
 
 
-        <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+        <div className="wd-dashboard-course col" style={{ width: "270px" }}>
         <div className="card rounded-3 overflow-hidden">
         <Link className="wd-dashboard-course-link text-decoration-none text-dark"
               to="/Kanbas/Courses/1202/Home">
@@ -73,7 +73,7 @@ export default function Dashboard() {
               CS1202 AI
               </h5>
             <p className="wd-dashboard-course-title">
-              Learn AI and concepts of ML
+            Spring 2023 Semester Full Term Section: 1202_3
             </p>
             <button className="btn btn-primary"> Go </button>
             </div> </Link>
@@ -81,7 +81,7 @@ export default function Dashboard() {
         </div>
 
 
-        <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+        <div className="wd-dashboard-course col" style={{ width: "270px" }}>
         <div className="card rounded-3 overflow-hidden">
         <Link className="wd-dashboard-course-link text-decoration-none text-dark"
               to="/Kanbas/Courses/1203/Home">
@@ -91,7 +91,7 @@ export default function Dashboard() {
               CS1203 Machine Learning
               </h5>
             <p className="wd-dashboard-course-title">
-              Learn Machine Learning algorithms 
+            Summer 2024 Semester First Half Term Section: 1203_1
             </p>
             <button className="btn btn-primary"> Go </button>
             </div></Link>
@@ -99,7 +99,7 @@ export default function Dashboard() {
         </div>
 
 
-        <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+        <div className="wd-dashboard-course col" style={{ width: "270px" }}>
         <div className="card rounded-3 overflow-hidden">
         <Link className="wd-dashboard-course-link text-decoration-none text-dark"
               to="/Kanbas/Courses/1204/Home">
@@ -108,7 +108,7 @@ export default function Dashboard() {
                  <h5 className="wd-dashboard-course-title card-title">
               CS1204 DBMS </h5>
             <p className="wd-dashboard-course-title">
-            Learn DBMS, (NoSQL and other databases)
+            Spring 2024 Semester Full Term Section: 1204_1
             </p>
             <button className="btn btn-primary"> Go </button>
             </div>
@@ -116,7 +116,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+        <div className="wd-dashboard-course col" style={{ width: "270px" }}>
         <div className="card rounded-3 overflow-hidden">
         <Link className="wd-dashboard-course-link text-decoration-none text-dark"
               to="/Kanbas/Courses/1205/Home">
@@ -126,7 +126,7 @@ export default function Dashboard() {
                  CS1205 Cloud Computing
                  </h5>
             <p className="wd-dashboard-course-title">
-              Learn Cloud Computing and AWS Practically
+            Spring 2023 Semester Full Term Section: 1205_1
             </p>
             <button className="btn btn-primary"> Go </button>
             </div>
@@ -134,7 +134,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+        <div className="wd-dashboard-course col" style={{ width: "270px" }}>
         <div className="card rounded-3 overflow-hidden">
         <Link className="wd-dashboard-course-link text-decoration-none text-dark"
               to="/Kanbas/Courses/1206/Home">
@@ -144,7 +144,7 @@ export default function Dashboard() {
               CS1206 C language
               </h5>
             <p className="wd-dashboard-course-title">
-              Learn C language and data structures
+            Fall 2023 Semester Full Term Section: 1206_1
             </p>
             <button className="btn btn-primary"> Go </button>
             </div>
