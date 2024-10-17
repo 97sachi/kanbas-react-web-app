@@ -30,6 +30,7 @@ import Add from "./Add";
 import Square from "./Square";
 import Highlight from "./Highlight";
 import PathParameters from "./PathParameters";
+import JsonStringify from "./JsonStringify";
 console.log('Hello World!');
 
 export default function Lab3() {
@@ -54,6 +55,7 @@ export default function Lab3() {
         <MapFunction/>
         <FindFunction/>
         <FilterFunction/>
+        <JsonStringify/>
         <House/>
         <TodoItem/>
         <TodoList/>
