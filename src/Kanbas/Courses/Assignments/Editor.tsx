@@ -227,7 +227,9 @@ export default function AssignmentEditor() {
               <div className="col-md-6">
                 <label htmlFor="wd-available-until" className="form-label font-weight-bold">Until</label>
                 <div className="input-group">
-                  <input id="wd-available-until" type="datetime-local" className="form-control" />
+                  <input id="wd-available-until" type="datetime-local"   
+                  defaultValue={new Date(assignment.due).toISOString().slice(0, 16)}
+                  className="form-control" />
                   <span className="input-group-text">
                     <FaCalendarAlt /> {/* Calendar icon */}
                   </span>
