@@ -31,9 +31,11 @@ import Square from "./Square";
 import Highlight from "./Highlight";
 import PathParameters from "./PathParameters";
 import JsonStringify from "./JsonStringify";
+import { useSelector } from "react-redux";
 console.log('Hello World!');
 
 export default function Lab3() {
+  const { todos } = useSelector((state: any) => state.todosReducer);
     return (
       <div id="wd-lab3">
         <h2>Lab 3</h2>
@@ -74,7 +76,15 @@ export default function Lab3() {
         vel nihil repellat nemo explicabo excepturi consectetur. Modi omnis minus sequi maiores, provident voluptates.
      </Highlight>
      <PathParameters/>
-     
+     <ul className="list-group">
+        {todos.map((todo: any) => (
+          <li className="list-group-item" key={todo.id}>
+            {todo.title}
+          </li>
+        ))}
+      </ul>
+      <hr />
+
 
 
       </div>

@@ -5,7 +5,9 @@ import { Link, useLocation } from "react-router-dom";
 import { LiaBookSolid, LiaCogSolid } from "react-icons/lia";
 import { FaInbox, FaRegCircleUser } from "react-icons/fa6";
 
+
 export default function KanbasNavigation() {
+  
   const { pathname } = useLocation();
   const links = [
     { label: "Dashboard", path: "/Kanbas/Dashboard", icon: AiOutlineDashboard },
