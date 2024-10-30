@@ -14,14 +14,15 @@ export default function Modules() {
   const [moduleName, setModuleName] = useState("");
   const { modules } = useSelector((state: any) => state.modulesReducer);
   const dispatch = useDispatch();
-
+  const { currentUser } = useSelector((state: any) => state.accountReducer);
   return (
     <div>
+      {currentUser?.role === "FACULTY" && (
        <ModulesControls moduleName={moduleName} setModuleName={setModuleName}
         addModule={() => {
           dispatch(addModule({ name: moduleName, course: cid }));
           setModuleName("");
-        }} />
+        }} /> )}
 
       <br /><br /><br /><br />
       <ul id="wd-modules" className="list-group rounded-0">
@@ -42,12 +43,12 @@ export default function Modules() {
                }}
                defaultValue={module.name}/>
       )}
-
+{currentUser?.role === "FACULTY" && (
 <ModuleControlButtons moduleId={module._id}
                   deleteModule={(moduleId) => {
                     dispatch(deleteModule(moduleId));
                   }}
-                  editModule={(moduleId) => dispatch(editModule(moduleId))} />
+                  editModule={(moduleId) => dispatch(editModule(moduleId))} /> )}
 
 
                 <div className="float-end">
