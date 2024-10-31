@@ -1,3 +1,4 @@
+// src/Kanbas/Courses/Assignments/AssignmentControl.tsx
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { FaPlus, FaSearch } from "react-icons/fa";
@@ -21,7 +22,7 @@ const AssignmentControl: React.FC<AssignmentControlProps> = ({ onAddAssignment }
                     <FormControl
                         type="text"
                         placeholder="Search..."
-                        className="ps-5" // Padding-left for the icon
+                        className="ps-5" 
                     />
                 </div>
             </div>

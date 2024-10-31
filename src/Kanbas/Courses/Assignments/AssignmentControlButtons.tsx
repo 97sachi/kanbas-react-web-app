@@ -17,7 +17,7 @@ const AssignmentControlButtons: React.FC<AssignmentControlButtonsProps> = ({
     <BsPencil
       className="fs-4 me-3 text-primary"
       onClick={(e) => {
-        e.stopPropagation(); // Prevents triggering parent events
+        e.stopPropagation(); 
         editAssignment(assignmentId);
       }}
       style={{ cursor: "pointer" }}
@@ -27,7 +27,7 @@ const AssignmentControlButtons: React.FC<AssignmentControlButtonsProps> = ({
     <BsTrash
       className="fs-4 text-danger"
       onClick={(e) => {
-        e.stopPropagation(); // Prevents triggering parent events
+        e.stopPropagation(); 
         if (window.confirm("Are you sure you want to delete this assignment?")) {
           deleteAssignment(assignmentId);
         }

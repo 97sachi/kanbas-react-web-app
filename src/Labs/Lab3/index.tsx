@@ -39,6 +39,14 @@ export default function Lab3() {
     return (
       <div id="wd-lab3">
         <h2>Lab 3</h2>
+        <ul className="list-group">
+        {todos.map((todo: any) => (
+          <li className="list-group-item" key={todo.id}>
+            {todo.title}
+          </li>
+        ))}
+      </ul>
+      <hr/>
         <VariablesAndConstants/>
         <VariableTypes/>
         <BooleanVariables/>
@@ -76,13 +84,7 @@ export default function Lab3() {
         vel nihil repellat nemo explicabo excepturi consectetur. Modi omnis minus sequi maiores, provident voluptates.
      </Highlight>
      <PathParameters/>
-     <ul className="list-group">
-        {todos.map((todo: any) => (
-          <li className="list-group-item" key={todo.id}>
-            {todo.title}
-          </li>
-        ))}
-      </ul>
+    
       <hr />
 
 

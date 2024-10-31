@@ -7,4 +7,3 @@ export default function GreenCheckmark() {
       <FaCircle className="text-white me-1 fs-6" />
     </span>
 );}
-
