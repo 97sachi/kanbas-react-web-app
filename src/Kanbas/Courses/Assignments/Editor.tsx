@@ -40,31 +40,16 @@ export default function AssignmentEditor() {
 
 
   const handleSave = () => {
-    // Check for essential fields with defaults
-    const newAssignment = {
-      ...assignment,
-      _id: aid || new Date().getTime().toString(),
-      title: assignment.title || "Untitled Assignment",
-      description: assignment.description || "No description provided.",
-      points: assignment.points || 0,
-      due: assignment.due || "", // You might need a default date if required
-      not_available_until: assignment.not_available_until || "",
-      available_until: assignment.available_until || "",
-      assignment_group: assignment.assignment_group || "ASSIGNMENTS",
-      display_grade_as: assignment.display_grade_as || "PERCENTAGE",
-      submission_type: assignment.submission_type || "Online",
-      online_entry_option: assignment.online_entry_option || [],
-    };
-  
     if (aid) {
-      // Editing existing assignment
-      dispatch(updateAssignment({ ...assignment, _id: aid }));
+      // Editing an existing assignment
+      dispatch(updateAssignment(assignment));
     } else {
-      // Adding new assignment
-      dispatch(addAssignment({ ...assignment, _id: new Date().getTime().toString() }));
+      // Adding a new assignment
+      dispatch(addAssignment(assignment));
     }
-    navigate(`/Kanbas/Courses/${cid}/Assignments`); // Redirect to the assignments list
+    navigate(`/Kanbas/Courses/${cid}/Assignments`);
   };
+  
   
 
   const handleCancel = () => {

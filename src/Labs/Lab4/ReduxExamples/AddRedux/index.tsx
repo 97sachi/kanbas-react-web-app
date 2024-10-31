@@ -19,7 +19,7 @@ export default function AddRedux() {
       <button className="btn btn-primary" id="wd-add-redux-click"
         onClick={() => dispatch(add({ a, b }))}>
         Add Redux </button>
-      <hr/>
+      
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import React, { useState, useEffect } from "react";
-import { enroll, unenroll } from "./redux/enrollmentsReducer"; // Import enrollment actions
+import { enroll, unenroll } from "./redux/enrollmentsReducer";
 
 interface Course {
   _id?: string;
@@ -11,7 +11,7 @@ interface Course {
 }
 
 export default function Dashboard({
-  courses: initialCourses, // Initial courses prop
+  courses: initialCourses,
   addNewCourse,
   deleteCourse,
   updateCourse,
@@ -25,15 +25,19 @@ export default function Dashboard({
   const enrollments = useSelector((state: any) => state.enrollment.enrollments);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const [courses, setCourses] = useState<Course[]>(initialCourses); // Local state for courses
   const [showAllCourses, setShowAllCourses] = useState(false);
-  const [currentCourse, setCurrentCourse] = useState<Course>({ name: "", description: "", image: "" });
+  const [currentCourse, setCurrentCourse] = useState<Course>({
+    name: "",
+    description: "",
+    image: "images/reactjs.jpg", // Default image path
+  });
 
   useEffect(() => {
-    setCourses(initialCourses); // Sync initial courses prop with local state
+    setCourses(initialCourses);
   }, [initialCourses]);
 
-  // Load enrollment state from localStorage on initial render
   useEffect(() => {
     const savedEnrollments = localStorage.getItem("enrollments");
     if (savedEnrollments) {
@@ -41,13 +45,11 @@ export default function Dashboard({
     }
   }, [dispatch]);
 
-  // Persist enrollment state to localStorage on enrollment changes
   useEffect(() => {
     const enrolledCourseIds = Object.keys(enrollments).filter((courseId) => enrollments[courseId]);
     localStorage.setItem("enrollments", JSON.stringify(enrolledCourseIds));
   }, [enrollments]);
 
-  // Toggle enrollment for a course
   const handleEnrollToggle = (courseId: string) => {
     if (enrollments[courseId]) {
       dispatch(unenroll(courseId));
@@ -56,57 +58,47 @@ export default function Dashboard({
     }
   };
 
-  // Navigate to course page only if the user is enrolled
   const handleGoClick = (courseId: string) => {
     if (enrollments[courseId]) {
       navigate(`/Kanbas/Courses/${courseId}/Home`);
     }
   };
 
-  // Handle adding a new course
   const handleAddCourse = () => {
     if (currentCourse.name && currentCourse.description) {
       const newCourse: Course = {
         _id: `${Date.now()}`, // Unique ID for the course
         name: currentCourse.name,
         description: currentCourse.description,
-        image: "images/reactjs.jpg", // Default image for new courses
+        image: currentCourse.image || "images/reactjs.jpg", // Default image if not set
       };
       addNewCourse(newCourse);
       setCourses([...courses, newCourse]); // Update the courses list locally
-      setCurrentCourse({ name: "", description: "", image: "" }); // Reset input fields
+      setCurrentCourse({ name: "", description: "", image: "images/reactjs.jpg" }); // Reset input fields
     }
   };
 
-  // Handle updating an existing course
   const handleUpdateCourse = () => {
     if (currentCourse.name && currentCourse.description && currentCourse._id) {
       updateCourse(currentCourse);
       setCourses(courses.map((course) => (course._id === currentCourse._id ? currentCourse : course)));
-      setCurrentCourse({ name: "", description: "", image: "" }); // Reset input fields
+      setCurrentCourse({ name: "", description: "", image: "images/reactjs.jpg" }); // Reset input fields
     }
   };
 
-  // Populate the input fields with the course details for editing
   const handleEditCourse = (course: Course) => {
     setCurrentCourse(course);
   };
 
-  // Determine which courses to display based on user role and toggle state
-  // Determine which courses to display based on user role and toggle state
-// Determine which courses to display based on user role and toggle state
-// Determine which courses to display based on user role and enrollment
-// Determine which courses to display based on enrollment status
-const displayedCourses = showAllCourses && currentUser?.role === "STUDENT"
-  ? courses // Students can toggle to see all courses
-  : courses.filter((course) => enrollments[course._id ?? ""]); // Show only enrolled courses by default
+  const displayedCourses = currentUser?.role === "STUDENT" && showAllCourses
+    ? courses
+    : courses.filter((course) => enrollments[course._id ?? ""]);
 
   return (
     <div id="wd-dashboard">
       <h1 id="wd-dashboard-title">Dashboard</h1>
       <hr />
 
-      {/* Faculty Controls */}
       {currentUser?.role === "FACULTY" && (
         <>
           <h5>New Course</h5>
@@ -128,7 +120,6 @@ const displayedCourses = showAllCourses && currentUser?.role === "STUDENT"
         </>
       )}
 
-      {/* Student Enrollments Toggle */}
       {currentUser?.role === "STUDENT" && (
         <button
           className="btn btn-primary float-end mb-3"
@@ -152,7 +143,6 @@ const displayedCourses = showAllCourses && currentUser?.role === "STUDENT"
                   {course.description}
                 </p>
 
-                {/* Enroll/Unenroll and Go buttons for students */}
                 {currentUser?.role === "STUDENT" && (
                   <>
                     <button
@@ -167,7 +157,6 @@ const displayedCourses = showAllCourses && currentUser?.role === "STUDENT"
                   </>
                 )}
 
-                {/* Go button for any enrolled user */}
                 {enrollments[course._id ?? ""] && (
                   <button
                     className="btn btn-primary me-2"
@@ -177,7 +166,6 @@ const displayedCourses = showAllCourses && currentUser?.role === "STUDENT"
                   </button>
                 )}
 
-                {/* Faculty-specific controls for managing courses */}
                 {currentUser?.role === "FACULTY" && (
                   <>
                     <button
@@ -192,7 +180,7 @@ const displayedCourses = showAllCourses && currentUser?.role === "STUDENT"
                     <button
                       onClick={(event) => {
                         event.preventDefault();
-                        handleEditCourse(course); // Load course data into inputs for editing
+                        handleEditCourse(course);
                       }}
                       className="btn btn-warning me-2 float-end"
                     >

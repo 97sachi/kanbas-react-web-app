@@ -29,6 +29,7 @@ export default function Lab4() {
         <DateStateVariable/>
         <ObjectStateVariable/>
         <ArrayStateVariable/>
+        <hr/>
         <ParentStateComponent/>
      <ReduxExamples/>
 
