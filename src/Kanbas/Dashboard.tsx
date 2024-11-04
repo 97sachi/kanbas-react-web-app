@@ -47,13 +47,13 @@ export default function Dashboard(
       )}
 
       {/* Enrollment Button for Students */}
-      {currentUser?.role === "STUDENT" && (
+      
         <button
           className="btn btn-info float-end"
           onClick={() => setShowAllCourses(!showAllCourses)}>
           {showAllCourses ? "My Enrollments" : "Enrollments"}
         </button>
-      )}
+      
 
       <h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2> <hr />
       <div id="wd-dashboard-courses" className="row">
@@ -80,19 +80,19 @@ export default function Dashboard(
                       {course.description} </p>
                     
                     {/* Enroll and Unenroll buttons that do not navigate */}
-                    {isEnrolled && currentUser?.role === "STUDENT" && (
+                    {isEnrolled &&  (
                       <button className="btn btn-danger" onClick={() => handleEnrollmentToggle(course._id, true)}>
                         Unenroll
                       </button>
                     )}
-                    {!isEnrolled && showAllCourses && currentUser?.role === "STUDENT" && (
+                    {!isEnrolled && showAllCourses &&  (
                       <button className="btn btn-success" onClick={() => handleEnrollmentToggle(course._id, false)}>
                         Enroll
                       </button>
                     )}
 
                     {/* Only Go button wrapped in Link for navigation */}
-                    <Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn btn-primary"> Go </Link>
+                    <Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn btn-primary">Go</Link>
 
                     {currentUser?.role === "FACULTY" && (
                       <>
@@ -101,15 +101,13 @@ export default function Dashboard(
                             event.preventDefault();
                             setCourse(course);
                           }}
-                          className="btn btn-warning me-2 float-end">
-                          Edit
+                          className="btn btn-warning me-2">Edit
                         </button>
                         <button onClick={(event) => {
                           event.preventDefault();
                           deleteCourse(course._id);
-                        }} className="btn btn-danger float-end"
-                          id="wd-delete-course-click">
-                          Delete
+                        }} className="btn btn-danger"
+                          id="wd-delete-course-click">Delete
                         </button>
                       </>
                     )}
