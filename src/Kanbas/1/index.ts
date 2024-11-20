@@ -1,8 +1,10 @@
-import courses from "./courses.json";
-import modules from "./modules.json";
-import users from "./users.json";
-import assignments from "./assignments.json";
-import enrollmentsData from "./enrollments.json";
+
+import courses from "./courses.js";
+import modules from "./modules.js";
+import assignments from "./assignments.js";
+import users from "./users.js";
+import enrollmentsData from "./enrollments.js";
+export default { courses, modules, assignments, users, enrollments: enrollmentsData };
 
 // Make enrollments mutable to allow real-time updates
 const enrollments = [...enrollmentsData];

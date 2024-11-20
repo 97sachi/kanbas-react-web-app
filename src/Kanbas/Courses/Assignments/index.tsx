@@ -1,5 +1,6 @@
 // src/Kanbas/Courses/Assignments/index.tsx
-import React from "react";
+
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom"; // Updated import path
 import { BsGripVertical } from "react-icons/bs";
@@ -7,9 +8,15 @@ import { FaBook } from "react-icons/fa";
 import AssignmentControl from "./AssignmentControl";
 import AssignmentControlButtons from "./AssignmentControlButtons";
 import LessonControlButtons from "../Modules/LessonControlButtons";
-import { deleteAssignment } from "./reducer";
+
 import { Assignment } from "./types";
 import { GoTriangleDown } from "react-icons/go";
+import {
+    deleteAssignment as deleteAssignmentRedux,
+    setAssignments,
+} from "./reducer";
+import { deleteAssignment, fetchAssignmentsForCourse } from "./client";
+
 
 interface AppState {
     assignmentsReducer: { assignments: Assignment[] };
@@ -29,8 +36,22 @@ export default function Assignments() {
 
     const currentUser = useSelector((state: AppState) => state.accountReducer.currentUser);
 
-    const handleDelete = (id: string) => {
-        dispatch(deleteAssignment(id));
+    useEffect(() => {
+        const loadAssignments = async () => {
+            if (!cid) return;
+            const fetchedAssignments = await fetchAssignmentsForCourse(cid);
+            dispatch(setAssignments(fetchedAssignments));
+        };
+        loadAssignments();
+    }, [cid, dispatch]);
+
+    const handleDelete = async (id: string) => {
+        try {
+            await deleteAssignment(id);
+            dispatch(deleteAssignmentRedux(id));
+        } catch (error) {
+            console.error("Error deleting assignment:", error);
+        }
     };
 
     const handleEdit = (id: string) => {

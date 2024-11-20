@@ -1,4 +1,4 @@
-[
+export default[
     {
         "_id": "A101",
         "title": "Propulsion Assignment",
@@ -116,4 +116,4 @@
         "submission_type": "Online",
         "online_entry_option": ["Website URL"]
     }
-]
+];

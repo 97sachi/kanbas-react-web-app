@@ -3,8 +3,11 @@ import { useState, useEffect } from "react";
 import { FaChevronDown, FaTimes, FaCalendarAlt } from "react-icons/fa";
 import { useParams, useNavigate } from "react-router-dom"; // Updated import path
 import { useDispatch, useSelector } from "react-redux";
-import { addAssignment, updateAssignment } from "./reducer";
 import { Assignment } from "./types";
+import { addAssignment, updateAssignment as updateAssignmentRedux } from "./reducer";
+import { updateAssignment as updateAssignmentAPI, createAssignment } from "./client";
+
+
 
 interface AppState {
     assignmentsReducer: { assignments: Assignment[] };
@@ -45,13 +48,22 @@ export default function AssignmentEditor() {
         }
     }, [isNewAssignment, existingAssignment]);
 
-    const handleSave = () => {
-        if (!isNewAssignment && existingAssignment) {
-            dispatch(updateAssignment(assignment as Assignment));
-        } else {
-            dispatch(addAssignment({ ...assignment, course: cid }));
+
+    const handleSave = async () => {
+        try {
+            if (isNewAssignment) {
+                // Create a new assignment
+                const newAssignment = await createAssignment({ ...assignment, course: cid });
+                dispatch(addAssignment(newAssignment));
+            } else {
+                // Update an existing assignment
+                const updatedAssignment = await updateAssignmentAPI(assignment);
+                dispatch(updateAssignmentRedux(updatedAssignment));
+            }
+            navigate(`/Kanbas/Courses/${cid}/Assignments`);
+        } catch (error) {
+            console.error("Error saving assignment:", error);
         }
-        navigate(`/Kanbas/Courses/${cid}/Assignments`);
     };
 
     const handleCancel = () => {

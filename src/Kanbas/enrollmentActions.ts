@@ -1,23 +1,27 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import * as db from "./Database";
+import {
+  enrollUser,
+  unenrollUser,
+  getUserEnrollments,
+} from "./enrollmentclient"; // Import from your enrollment client file
 
 export const toggleEnrollment = createAsyncThunk(
   "enrollment/toggleEnrollment",
   async ({ userId, courseId, isEnrolled }: { userId: string; courseId: string; isEnrolled: boolean }) => {
     // Toggle enrollment based on current enrollment status
     if (isEnrolled) {
-      await db.unenrollUser(userId, courseId); // Unenroll if currently enrolled
+      await unenrollUser(userId, courseId); // Call API to unenroll
     } else {
-      await db.enrollUser(userId, courseId); // Enroll if not currently enrolled
+      await enrollUser(userId, courseId); // Call API to enroll
     }
-    return { userId, courseId, isEnrolled: !isEnrolled };
+    return { userId, courseId, isEnrolled: !isEnrolled }; // Return the updated state
   }
 );
 
 export const fetchEnrollments = createAsyncThunk(
   "enrollment/fetchEnrollments",
   async (userId: string) => {
-    const enrollments = await db.getUserEnrollments(userId);
+    const enrollments = await getUserEnrollments(userId); // Fetch enrollments from API
     return enrollments;
   }
 );

@@ -6,7 +6,7 @@ import Home from "./Home";
 import PeopleTable from "./People/Table";
 import { FaAlignJustify } from "react-icons/fa";
 import { Route, Routes, useParams, useLocation } from "react-router";
-import { courses } from "../Database";
+import { courses } from "../1";
 export default function Courses({ courses }: { courses: any[]; }) {
 
   const { cid } = useParams();
