@@ -26,6 +26,7 @@ export default function AssignmentEditor() {
 
     // Initialize state with assignment details or default values for a new assignment
     const [assignment, setAssignment] = useState<Partial<Assignment>>({
+        //_id: string; // Mongoose ObjectId represented as a string
         title: "",
         description: "",
         points: 100,
